@@ -19,9 +19,9 @@
 // #7
 12 + 14 + '12', // равно 2612, потому что 12 + 14 = 26, и так как есть '12' идет переобразование в строку
 // #8
-3 + 2 - '1', // равно 4, потому что
+3 + 2 - '1', // равно 4, потому что строка преоброзована к числу
 // #9
-'3' + 2 - 1, // равно 31, потому что 
+'3' + 2 - 1, // равно 31, потому что плюс и минус одинаковы по приоритету, поэтому сначало идет преобразование в строку, а потом вычитание числа
 // #10 
 true + 2, // равно 3, так как true всегда равна 1, то получается 1 + 2 = 3
 // #11
@@ -44,7 +44,7 @@ if (exp == 'hidden') {
 };
 
 // #2
-let number = 3;
+let number = 2;
 
 if (number == 0) {
 	console.log(1)
@@ -57,7 +57,7 @@ if (number == 0) {
 // #3
 let car = {
 	name: 'Lexus',
-	age: 6,
+	age: 4,
 	create: 2008,
 	needRepair: false
 };
@@ -102,3 +102,46 @@ if (product.price.replace('$', '') >= min && product.price.replace('$', '') <= m
 } else {
 	console.log('товаров не найдено')
 }
+
+
+// Тернарный оператор. Switch case. Задачи.
+// #1
+let a 
+// if (a === ‘block’) {
+// 	console.log(‘block’)
+// } else if (a === ‘none’) {
+// 	console.log(‘none’)
+// } else if (a === ‘inline’) {
+// console.log(‘inline’)
+// } else {
+// 	console.log(‘other’)
+// }
+switch (a) {
+	case 'block':
+		console.log('block');
+		// more actions...
+		break;
+	case 'none':
+		console.log('none');
+		// more actions...
+		break;
+	case 'inline':
+		console.log('inline');
+		// more actions...
+		break;
+	default:
+		console.log('other')
+}
+
+// #2
+// #2.1
+exp == 'hidden' ? console.log('visible') : console.log('hidden')
+
+// #2.2
+number == 0 ? console.log(1)
+	: number < 0 ? console.log('less than zero') 
+		: console.log(number *= 10)
+
+// #2.3
+car.age > 5 ? car.needRepair = true : car.needRepair = false
+console.log(car)
