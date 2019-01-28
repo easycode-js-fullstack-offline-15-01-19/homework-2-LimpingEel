@@ -37,22 +37,24 @@ true + undefined; // равно NaN, так как undefined == NaN
 // #1
 let exp = 'hidden';
 
-if (exp == 'hidden') {
-	console.log('visible')
+if (exp === 'hidden') {
+	exp = 'visible';
 } else {
-	console.log('hidden');
-};
+	exp = 'hidden'
+}
+console.log(exp)
 
 // #2
-let number = 2;
+let number = -1;
 
-if (number == 0) {
-	console.log(1)
+if (number === 0) {
+	number = 1
 } else if (number < 0) {
-	console.log('less than zero')
+	number = 'less than zero'
 } else {
-	console.log(number *= 10)
+	number = number *= 10
 };
+console.log(number)
 
 // #3
 let car = {
@@ -80,7 +82,7 @@ let item = {
 }
 
 if (item.discount) {
-	item.priceWithDiscount = +item.price.replace('$', '') - +item.discount.replace('%', '') / 100 * +item.price.replace('$', '') 
+	item.priceWithDiscount = +parseFloat(item.price) - +parseFloat(item.discount) / 100 * +parseFloat(item.price)
 } else {
 	console.log(item.price)
 }
@@ -97,7 +99,7 @@ let product = {
 let min = 10; // минимальная цена
 let max = 20; // максимальная цена
 
-if (product.price.replace('$', '') >= min && product.price.replace('$', '') <= max) {
+if (parseFloat(product.price) >= min && parseFloat(product.price) <= max) {
 	console.log(product.name)
 } else {
 	console.log('товаров не найдено')
@@ -135,12 +137,12 @@ switch (a) {
 
 // #2
 // #2.1
-exp == 'hidden' ? console.log('visible') : console.log('hidden')
+exp === 'hidden' ? exp = 'visible' : exp = 'hidden'
 
 // #2.2
-number == 0 ? console.log(1)
-	: number < 0 ? console.log('less than zero') 
-		: console.log(number *= 10)
+number === 0 ? number = 1
+	: number < 0 ? number = 'less than zero' 
+		: number = number *= 10
 
 // #2.3
 car.age > 5 ? car.needRepair = true : car.needRepair = false
